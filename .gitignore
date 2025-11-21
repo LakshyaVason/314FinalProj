@@ -1,0 +1,23 @@
+# Ignore build output directories
+/out/
+/build/
+/bin/
+/target/
+
+# Ignore compiled Java artifacts
+*.class
+
+# Ignore IDE/project metadata
+/.idea/
+/.vscode/
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore archives and media (keep repo text-only)
+*.zip
+*.jar
+*.mp4
+*.mov
+*.webm
