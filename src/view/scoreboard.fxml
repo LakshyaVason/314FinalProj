@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.ScoreboardController">
+    <children>
+        <VBox alignment="TOP_CENTER" spacing="12.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <fx:define>
+                <ToggleGroup fx:id="teamToggleGroup" />
+            </fx:define>
+            <padding>
+                <Insets top="16" right="16" bottom="16" left="16" />
+            </padding>
+
+            <Label text="CSCE 314 Scoreboard" styleClass="headline" />
+
+            <GridPane hgap="10" vgap="8">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50" />
+                    <ColumnConstraints percentWidth="50" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                </rowConstraints>
+
+                <Label text="Home Team" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <TextField fx:id="homeNameField" promptText="Enter home team" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                <Label text="Away Team" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <TextField fx:id="awayNameField" promptText="Enter away team" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                <Button text="Set Team Names" onAction="handleSetTeamNames" GridPane.rowIndex="2" GridPane.columnSpan="2" maxWidth="Infinity" />
+            </GridPane>
+
+            <HBox spacing="10" alignment="CENTER">
+                <VBox spacing="4" alignment="CENTER">
+                    <Label text="Home" styleClass="team-label" />
+                    <RadioButton fx:id="homeTeamRadio" toggleGroup="$teamToggleGroup" text="Home" />
+                </VBox>
+                <VBox spacing="4" alignment="CENTER">
+                    <Label text="Away" styleClass="team-label" />
+                    <RadioButton fx:id="awayTeamRadio" toggleGroup="$teamToggleGroup" text="Away" />
+                </VBox>
+            </HBox>
+
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50" />
+                    <ColumnConstraints percentWidth="50" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                </rowConstraints>
+
+                <Button text="+6 Touchdown" onAction="handleAddTouchdown" GridPane.rowIndex="0" GridPane.columnIndex="0" maxWidth="Infinity" />
+                <Button text="+3 Field Goal" onAction="handleAddFieldGoal" GridPane.rowIndex="0" GridPane.columnIndex="1" maxWidth="Infinity" />
+                <Button text="+2 Safety / 2pt" onAction="handleAddTwoPoint" GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="Infinity" />
+                <Button text="+1 Extra Point" onAction="handleAddExtraPoint" GridPane.rowIndex="1" GridPane.columnIndex="1" maxWidth="Infinity" />
+                <Button fx:id="undoButton" text="Undo Last" onAction="handleUndo" GridPane.rowIndex="2" GridPane.columnIndex="0" maxWidth="Infinity" />
+                <Button fx:id="clearButton" text="Clear Game" onAction="handleClear" GridPane.rowIndex="2" GridPane.columnIndex="1" maxWidth="Infinity" />
+            </GridPane>
+
+            <HBox spacing="30" alignment="CENTER" styleClass="scoreboard">
+                <VBox alignment="CENTER" spacing="4">
+                    <Label fx:id="homeNameLabel" text="Home" styleClass="team-name" />
+                    <Label fx:id="homeScoreLabel" text="0" styleClass="score-label" />
+                </VBox>
+                <VBox alignment="CENTER" spacing="4">
+                    <Label fx:id="awayNameLabel" text="Away" styleClass="team-name" />
+                    <Label fx:id="awayScoreLabel" text="0" styleClass="score-label" />
+                </VBox>
+            </HBox>
+
+            <Label fx:id="lastActionLabel" text="Ready for kickoff" wrapText="true" />
+        </VBox>
+    </children>
+</AnchorPane>
