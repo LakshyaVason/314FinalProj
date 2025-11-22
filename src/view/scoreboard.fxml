@@ -75,7 +75,7 @@
                   <Button fx:id="clearButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleClear" styleClass="control-button" text="Clear Game" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <HBox alignment="CENTER" spacing="30.0" styleClass="scoreboard">
+            <HBox fx:id="scoreboardPanel" alignment="CENTER" spacing="30.0" styleClass="scoreboard">
                <children>
                   <VBox alignment="CENTER" spacing="4.0">
                      <children>
