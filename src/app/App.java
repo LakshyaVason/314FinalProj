@@ -12,6 +12,7 @@ public class App extends Application {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("/view/scoreboard.fxml"));
         loader.setControllerFactory(param -> new ScoreboardController());
         Scene scene = new Scene(loader.load());
+        scene.getStylesheets().add(App.class.getResource("/view/scoreboard.css").toExternalForm());
         stage.setTitle("CSCE 314 Scoreboard");
         stage.setScene(scene);
         stage.show();
