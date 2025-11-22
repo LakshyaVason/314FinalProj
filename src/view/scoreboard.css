@@ -113,8 +113,33 @@
     -fx-padding: 10 0 0 0;
 }
 
-/* Labels in general */
-.label {
-    -fx-font-size: 13px;
-    -fx-text-fill: #2c3e50;
+/* Scoreboard container box */
+.scoreboard-box {
+    -fx-background-color: #1a472a;
+    -fx-padding: 30;
+    -fx-border-color: #ffd700;
+    -fx-border-width: 3;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+/* Team names in scoreboard */
+.scoreboard-team-name {
+    -fx-text-fill: #ffd700;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+/* Score numbers in scoreboard */
+.scoreboard-score {
+    -fx-text-fill: white;
+    -fx-font-size: 72px;
+    -fx-font-weight: bold;
+}
+
+/* VS label */
+.scoreboard-vs {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
 }

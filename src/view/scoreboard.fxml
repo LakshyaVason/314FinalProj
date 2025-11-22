@@ -20,8 +20,8 @@
             <!-- Title -->
             <Label styleClass="headline" text="Football Scoreboard" />
             
-            <!-- SCOREBOARD DISPLAY - Simplified with inline styles -->
-            <VBox fx:id="scoreboardPanel" alignment="CENTER" spacing="20.0" visible="true" managed="true" 
+            <!-- SCOREBOARD DISPLAY -->
+            <VBox fx:id="scoreboardPanel" alignment="CENTER" spacing="20.0" 
                   style="-fx-background-color: #1a472a; -fx-padding: 30; -fx-border-color: #ffd700; -fx-border-width: 3; -fx-border-radius: 10; -fx-background-radius: 10;">
                <children>
                   <HBox alignment="CENTER" spacing="40.0">
@@ -29,23 +29,19 @@
                         <!-- Home Team -->
                         <VBox alignment="CENTER" spacing="5.0">
                            <children>
-                              <Label fx:id="homeNameLabel" text="Home" 
-                                     style="-fx-text-fill: #ffd700; -fx-font-size: 24px; -fx-font-weight: bold;" />
-                              <Label fx:id="homeScoreLabel" text="0" 
-                                     style="-fx-text-fill: white; -fx-font-size: 72px; -fx-font-weight: bold;" />
+                              <Label fx:id="homeNameLabel" text="Home" />
+                              <Label fx:id="homeScoreLabel" text="0" />
                            </children>
                         </VBox>
                         
                         <!-- VS -->
-                        <Label text="VS" style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" />
+                        <Label text="VS" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" />
                         
                         <!-- Away Team -->
                         <VBox alignment="CENTER" spacing="5.0">
                            <children>
-                              <Label fx:id="awayNameLabel" text="Away" 
-                                     style="-fx-text-fill: #ffd700; -fx-font-size: 24px; -fx-font-weight: bold;" />
-                              <Label fx:id="awayScoreLabel" text="0" 
-                                     style="-fx-text-fill: white; -fx-font-size: 72px; -fx-font-weight: bold;" />
+                              <Label fx:id="awayNameLabel" text="Away" />
+                              <Label fx:id="awayScoreLabel" text="0" />
                            </children>
                         </VBox>
                      </children>

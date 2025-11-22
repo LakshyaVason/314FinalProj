@@ -122,8 +122,7 @@ public class ScoreboardController {
     }
 
     private Scoreboard.Team getSelectedTeam() {
-        Object data = teamToggleGroup.getSelectedToggle() == null ? null
-                : teamToggleGroup.getSelectedToggle().getUserData();
+        Object data = teamToggleGroup.getSelectedToggle() == null ? null : teamToggleGroup.getSelectedToggle().getUserData();
         return data instanceof Scoreboard.Team ? (Scoreboard.Team) data : null;
     }
 
@@ -132,58 +131,19 @@ public class ScoreboardController {
         awayNameLabel.setText(scoreboard.getAwayName());
         homeScoreLabel.setText(Integer.toString(scoreboard.getHomeScore()));
         awayScoreLabel.setText(Integer.toString(scoreboard.getAwayScore()));
-
-        // DEBUG - Force everything
-        System.out.println("Home: " + scoreboard.getHomeName() + " - " + scoreboard.getHomeScore());
-        System.out.println("Away: " + scoreboard.getAwayName() + " - " + scoreboard.getAwayScore());
-
-        homeNameLabel.setStyle("-fx-text-fill: red; -fx-font-size: 30px;");
-        awayNameLabel.setStyle("-fx-text-fill: red; -fx-font-size: 30px;");
-        homeScoreLabel.setStyle("-fx-text-fill: red; -fx-font-size: 60px;");
-        awayScoreLabel.setStyle("-fx-text-fill: red; -fx-font-size: 60px;");
-
+        
+        // Apply styles programmatically (this is more reliable than FXML inline or CSS)
+        homeNameLabel.setStyle("-fx-text-fill: #ffd700; -fx-font-size: 28px; -fx-font-weight: bold;");
+        awayNameLabel.setStyle("-fx-text-fill: #ffd700; -fx-font-size: 28px; -fx-font-weight: bold;");
+        homeScoreLabel.setStyle("-fx-text-fill: white; -fx-font-size: 72px; -fx-font-weight: bold;");
+        awayScoreLabel.setStyle("-fx-text-fill: white; -fx-font-size: 72px; -fx-font-weight: bold;");
+        
         homeTeamRadio.setText(scoreboard.getHomeName());
         awayTeamRadio.setText(scoreboard.getAwayName());
         lastActionLabel.setText(scoreboard.getLastActionDescription().orElse("Ready for kickoff"));
         undoButton.setDisable(!scoreboard.hasHistory());
-        clearButton.setDisable(
-                scoreboard.getHomeScore() == 0 && scoreboard.getAwayScore() == 0 && !scoreboard.hasHistory());
-
-        if (scoreboardPanel != null) {
-            scoreboardPanel.setVisible(true);
-            scoreboardPanel.setManaged(true);
-        }
-
-        homeNameLabel.setVisible(true);
-        awayNameLabel.setVisible(true);
-        homeScoreLabel.setVisible(true);
-        awayScoreLabel.setVisible(true);
+        clearButton.setDisable(scoreboard.getHomeScore() == 0 && scoreboard.getAwayScore() == 0 && !scoreboard.hasHistory());
     }
-    // private void updateView() {
-    // homeNameLabel.setText(scoreboard.getHomeName());
-    // awayNameLabel.setText(scoreboard.getAwayName());
-    // homeScoreLabel.setText(Integer.toString(scoreboard.getHomeScore()));
-    // awayScoreLabel.setText(Integer.toString(scoreboard.getAwayScore()));
-    // homeTeamRadio.setText(scoreboard.getHomeName());
-    // awayTeamRadio.setText(scoreboard.getAwayName());
-    // lastActionLabel.setText(scoreboard.getLastActionDescription().orElse("Ready
-    // for kickoff"));
-    // undoButton.setDisable(!scoreboard.hasHistory());
-    // clearButton.setDisable(scoreboard.getHomeScore() == 0 &&
-    // scoreboard.getAwayScore() == 0 && !scoreboard.hasHistory());
-
-    // // Ensure scoreboard is always visible
-    // if (scoreboardPanel != null) {
-    // scoreboardPanel.setVisible(true);
-    // scoreboardPanel.setManaged(true);
-    // }
-
-    // // Force labels to be visible and styled
-    // homeNameLabel.setVisible(true);
-    // awayNameLabel.setVisible(true);
-    // homeScoreLabel.setVisible(true);
-    // awayScoreLabel.setVisible(true);
-    // }
 
     private void showError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
