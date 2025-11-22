@@ -133,7 +133,7 @@ public class ScoreboardController {
         awayScoreLabel.setText(Integer.toString(scoreboard.getAwayScore()));
         homeTeamRadio.setText(scoreboard.getHomeName());
         awayTeamRadio.setText(scoreboard.getAwayName());
-        lastActionLabel.setText(formatStatusText());
+        lastActionLabel.setText(scoreboard.getLastActionDescription().orElse("Ready for kickoff"));
         undoButton.setDisable(!scoreboard.hasHistory());
         clearButton.setDisable(scoreboard.getHomeScore() == 0 && scoreboard.getAwayScore() == 0 && !scoreboard.hasHistory());
         if (scoreboardPanel != null) {
@@ -144,13 +144,7 @@ public class ScoreboardController {
 
     private String formatStatusText() {
         String action = scoreboard.getLastActionDescription().orElse("Ready for kickoff");
-        return String.format(
-                "%s — %s: %d | %s: %d",
-                action,
-                scoreboard.getHomeName(),
-                scoreboard.getHomeScore(),
-                scoreboard.getAwayName(),
-                scoreboard.getAwayScore());
+        return String.format("%s — %s: %d | %s: %d", action, scoreboard.getHomeName(), scoreboard.getHomeScore(), scoreboard.getAwayName(), scoreboard.getAwayScore());
     }
 
     private void showError(String message) {
