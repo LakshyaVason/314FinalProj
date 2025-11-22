@@ -53,6 +53,7 @@ public class ScoreboardController {
         scoreboard = new Scoreboard();
         homeTeamRadio.setUserData(Scoreboard.Team.HOME);
         awayTeamRadio.setUserData(Scoreboard.Team.AWAY);
+        homeTeamRadio.setSelected(true);
         updateView();
     }
 
@@ -126,6 +127,8 @@ public class ScoreboardController {
         awayNameLabel.setText(scoreboard.getAwayName());
         homeScoreLabel.setText(Integer.toString(scoreboard.getHomeScore()));
         awayScoreLabel.setText(Integer.toString(scoreboard.getAwayScore()));
+        homeTeamRadio.setText(scoreboard.getHomeName());
+        awayTeamRadio.setText(scoreboard.getAwayName());
         lastActionLabel.setText(scoreboard.getLastActionDescription().orElse("Ready for kickoff"));
         undoButton.setDisable(!scoreboard.hasHistory());
         clearButton.setDisable(scoreboard.getHomeScore() == 0 && scoreboard.getAwayScore() == 0 && !scoreboard.hasHistory());
