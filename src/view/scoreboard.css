@@ -1,167 +1,120 @@
-/* Main container styling */
 .root {
-    -fx-background-color: #1a472a;
-    -fx-font-family: "Arial", sans-serif;
+    -fx-background-color: #f5f5f5;
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
 }
 
-/* Title styling */
-.title-label {
-    -fx-font-size: 32px;
+/* Headline - Main title */
+.headline {
+    -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-text-fill: #ffffff;
-    -fx-padding: 20px;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 10 0 10 0;
 }
 
-/* Team name labels (big display) */
-.team-name-label {
-    -fx-font-size: 36px;
+/* Team labels in radio button section */
+.team-label {
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-text-fill: #ffd700;
-    -fx-padding: 10px;
-    -fx-background-color: #2d5a3d;
-    -fx-background-radius: 10px;
+    -fx-text-fill: #34495e;
 }
 
-/* Score labels (big numbers) */
-.score-label {
-    -fx-font-size: 72px;
+/* Score buttons styling */
+.score-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-text-fill: #ffffff;
-    -fx-padding: 20px;
-    -fx-background-color: #0d2417;
-    -fx-background-radius: 15px;
-    -fx-border-color: #ffd700;
-    -fx-border-width: 3px;
-    -fx-border-radius: 15px;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
 }
 
-/* Section labels */
-.section-label {
-    -fx-font-size: 18px;
+.score-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.score-button:pressed {
+    -fx-background-color: #1f5f8b;
+}
+
+/* Control buttons (Undo, Clear) */
+.control-button {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-text-fill: #ffffff;
-    -fx-padding: 10px 0 5px 0;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
 }
 
-/* Last action label */
-.last-action-label {
-    -fx-font-size: 16px;
-    -fx-text-fill: #ffd700;
-    -fx-padding: 10px;
-    -fx-background-color: #2d5a3d;
-    -fx-background-radius: 5px;
+.control-button:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+.control-button:pressed {
+    -fx-background-color: #5f6d6e;
+}
+
+/* Set Team Names button */
+.button {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 16 8 16;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #27ae60;
+}
+
+.button:pressed {
+    -fx-background-color: #1e8449;
 }
 
 /* Text fields */
 .text-field {
-    -fx-font-size: 16px;
-    -fx-padding: 8px;
-    -fx-background-color: #ffffff;
-    -fx-border-color: #2d5a3d;
-    -fx-border-width: 2px;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
+    -fx-font-size: 13px;
+    -fx-padding: 8;
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.text-field:focused {
+    -fx-border-color: #3498db;
+    -fx-border-width: 2;
 }
 
 /* Radio buttons */
 .radio-button {
-    -fx-font-size: 16px;
-    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
 }
 
 .radio-button .radio {
-    -fx-background-color: #ffffff;
+    -fx-background-color: white;
+    -fx-border-color: #3498db;
+    -fx-border-width: 2;
 }
 
-.radio-button:selected .radio {
-    -fx-background-color: #ffd700;
+.radio-button:selected .radio .dot {
+    -fx-background-color: #3498db;
 }
 
-/* Buttons - General */
-.button {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-padding: 12px 24px;
-    -fx-background-radius: 8px;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+/* Status label at bottom */
+.status-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+    -fx-font-style: italic;
+    -fx-padding: 10 0 0 0;
 }
 
-.button:hover {
-    -fx-scale-x: 1.05;
-    -fx-scale-y: 1.05;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0, 0, 3);
-}
-
-.button:pressed {
-    -fx-scale-x: 0.95;
-    -fx-scale-y: 0.95;
-}
-
-/* Scoring buttons */
-.score-button {
-    -fx-background-color: #4CAF50;
-    -fx-text-fill: white;
-    -fx-min-width: 120px;
-    -fx-min-height: 45px;
-}
-
-.score-button:hover {
-    -fx-background-color: #45a049;
-}
-
-/* Touchdown button (special) */
-.touchdown-button {
-    -fx-background-color: #ff5722;
-    -fx-text-fill: white;
-    -fx-min-width: 120px;
-    -fx-min-height: 45px;
-}
-
-.touchdown-button:hover {
-    -fx-background-color: #e64a19;
-}
-
-/* Control buttons (Set Names) */
-.control-button {
-    -fx-background-color: #2196F3;
-    -fx-text-fill: white;
-    -fx-min-width: 100px;
-}
-
-.control-button:hover {
-    -fx-background-color: #0b7dda;
-}
-
-/* Undo button */
-.undo-button {
-    -fx-background-color: #FFC107;
-    -fx-text-fill: #000000;
-    -fx-min-width: 100px;
-}
-
-.undo-button:hover {
-    -fx-background-color: #ffb300;
-}
-
-/* Clear button */
-.clear-button {
-    -fx-background-color: #f44336;
-    -fx-text-fill: white;
-    -fx-min-width: 100px;
-}
-
-.clear-button:hover {
-    -fx-background-color: #da190b;
-}
-
-/* Spacing and layout helpers */
-.vbox-spacing {
-    -fx-spacing: 15px;
-    -fx-padding: 20px;
-}
-
-.hbox-spacing {
-    -fx-spacing: 10px;
-    -fx-alignment: center;
+/* Labels in general */
+.label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #2c3e50;
 }
