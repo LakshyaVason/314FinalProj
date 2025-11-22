@@ -8,7 +8,6 @@ import java.util.Optional;
 /**
  * Model representing an American football scoreboard.
  * Contains all validation, scoring logic, and undo history without any UI dependencies.
- * Kept text-only so it can be shared without bundling build outputs or media.
  */
 public final class Scoreboard {
     public enum Team {

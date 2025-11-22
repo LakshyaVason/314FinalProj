@@ -48,7 +48,7 @@ public class ScoreboardController {
     private Button clearButton;
 
     @FXML
-    private HBox scoreboardPanel;
+    private VBox scoreboardPanel;
 
     private Scoreboard scoreboard;
 
@@ -136,15 +136,18 @@ public class ScoreboardController {
         lastActionLabel.setText(scoreboard.getLastActionDescription().orElse("Ready for kickoff"));
         undoButton.setDisable(!scoreboard.hasHistory());
         clearButton.setDisable(scoreboard.getHomeScore() == 0 && scoreboard.getAwayScore() == 0 && !scoreboard.hasHistory());
+        
+        // Ensure scoreboard is always visible
         if (scoreboardPanel != null) {
             scoreboardPanel.setVisible(true);
             scoreboardPanel.setManaged(true);
         }
-    }
-
-    private String formatStatusText() {
-        String action = scoreboard.getLastActionDescription().orElse("Ready for kickoff");
-        return String.format("%s — %s: %d | %s: %d", action, scoreboard.getHomeName(), scoreboard.getHomeScore(), scoreboard.getAwayName(), scoreboard.getAwayScore());
+        
+        // Force labels to be visible and styled
+        homeNameLabel.setVisible(true);
+        awayNameLabel.setVisible(true);
+        homeScoreLabel.setVisible(true);
+        awayScoreLabel.setVisible(true);
     }
 
     private void showError(String message) {

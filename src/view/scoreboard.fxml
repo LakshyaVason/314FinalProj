@@ -15,9 +15,48 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="600.0" styleClass="root" stylesheets="@scoreboard.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ScoreboardController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="200.0" layoutY="150.0" spacing="12.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label styleClass="headline" text="ESPN SportsCenter" />
+            <!-- Title -->
+            <Label styleClass="headline" text="Football Scoreboard" />
+            
+            <!-- SCOREBOARD DISPLAY - Simplified with inline styles -->
+            <VBox fx:id="scoreboardPanel" alignment="CENTER" spacing="20.0" visible="true" managed="true" 
+                  style="-fx-background-color: #1a472a; -fx-padding: 30; -fx-border-color: #ffd700; -fx-border-width: 3; -fx-border-radius: 10; -fx-background-radius: 10;">
+               <children>
+                  <HBox alignment="CENTER" spacing="40.0">
+                     <children>
+                        <!-- Home Team -->
+                        <VBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Label fx:id="homeNameLabel" text="Home" 
+                                     style="-fx-text-fill: #ffd700; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                              <Label fx:id="homeScoreLabel" text="0" 
+                                     style="-fx-text-fill: white; -fx-font-size: 72px; -fx-font-weight: bold;" />
+                           </children>
+                        </VBox>
+                        
+                        <!-- VS -->
+                        <Label text="VS" style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" />
+                        
+                        <!-- Away Team -->
+                        <VBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Label fx:id="awayNameLabel" text="Away" 
+                                     style="-fx-text-fill: #ffd700; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                              <Label fx:id="awayScoreLabel" text="0" 
+                                     style="-fx-text-fill: white; -fx-font-size: 72px; -fx-font-weight: bold;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <!-- Last Action Status -->
+            <Label fx:id="lastActionLabel" alignment="CENTER" styleClass="status-label" text="Ready for kickoff" wrapText="true" />
+            
+            <!-- Team Name Setup -->
             <GridPane hgap="10.0" vgap="8.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
@@ -29,33 +68,32 @@
                 <RowConstraints vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Home Team" />
+                  <Label text="Home Team Name:" />
                   <TextField fx:id="homeNameField" promptText="Enter home team" GridPane.columnIndex="1" />
-                  <Label text="Away Team" GridPane.rowIndex="1" />
+                  <Label text="Away Team Name:" GridPane.rowIndex="1" />
                   <TextField fx:id="awayNameField" promptText="Enter away team" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleSetTeamNames" text="Set Team Names" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <HBox alignment="CENTER" spacing="10.0">
+            
+            <!-- Team Selection for Scoring - Removed duplicate labels -->
+            <VBox alignment="CENTER" spacing="8.0">
                <children>
-                  <VBox alignment="CENTER" spacing="4.0">
+                  <Label text="Select which team scored:" styleClass="team-label" />
+                  <HBox alignment="CENTER" spacing="20.0">
                      <children>
-                        <Label styleClass="team-label" text="Home" />
                         <RadioButton fx:id="homeTeamRadio" mnemonicParsing="false" text="Home">
                            <toggleGroup>
                               <ToggleGroup fx:id="teamToggleGroup" />
                            </toggleGroup>
                         </RadioButton>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" spacing="4.0">
-                     <children>
-                        <Label styleClass="team-label" text="Away" />
                         <RadioButton fx:id="awayTeamRadio" mnemonicParsing="false" text="Away" toggleGroup="$teamToggleGroup" />
                      </children>
-                  </VBox>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
+            
+            <!-- Scoring Buttons -->
             <GridPane hgap="10.0" vgap="10.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
@@ -75,23 +113,6 @@
                   <Button fx:id="clearButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleClear" styleClass="control-button" text="Clear Game" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <HBox fx:id="scoreboardPanel" alignment="CENTER" spacing="30.0" styleClass="scoreboard">
-               <children>
-                  <VBox alignment="CENTER" spacing="4.0">
-                     <children>
-                        <Label fx:id="homeNameLabel" styleClass="team-name" text="Home" />
-                        <Label fx:id="homeScoreLabel" styleClass="score-label" text="0" />
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" spacing="4.0">
-                     <children>
-                        <Label fx:id="awayNameLabel" styleClass="team-name" text="Away" />
-                        <Label fx:id="awayScoreLabel" styleClass="score-label" text="0" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <Label fx:id="lastActionLabel" alignment="CENTER" styleClass="status-label" text="Ready for kickoff" wrapText="true" />
          </children>
          <padding>
             <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
