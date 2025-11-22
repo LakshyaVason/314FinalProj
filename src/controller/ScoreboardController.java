@@ -133,7 +133,7 @@ public class ScoreboardController {
         awayScoreLabel.setText(Integer.toString(scoreboard.getAwayScore()));
         homeTeamRadio.setText(scoreboard.getHomeName());
         awayTeamRadio.setText(scoreboard.getAwayName());
-        lastActionLabel.setText(formatStatusText());
+        lastActionLabel.setText(scoreboard.getLastActionDescription().orElse("Ready for kickoff"));
         undoButton.setDisable(!scoreboard.hasHistory());
         clearButton.setDisable(scoreboard.getHomeScore() == 0 && scoreboard.getAwayScore() == 0 && !scoreboard.hasHistory());
         if (scoreboardPanel != null) {
