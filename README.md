@@ -31,17 +31,29 @@ This JavaFX application implements a football scoreboard that allows users to:
 ## How to Build and Run
 
 **Compilation:**
-
-Must be done within src\app
-
+This ensures classes are in a different directiry than source code
 ```bash
 javac --module-path "C:\path\to\javafx-sdk\lib" --add-modules javafx.controls,javafx.fxml -d out src\model\*.java src\controller\*.java src\app\*.java
 
 ```
 
+In my case, 
+
+```bash
+
+javac --module-path "C:\Users\Lmaoi\Downloads\openjfx-25.0.1_windows-x64_bin-sdk\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,javafx.fxml -d out src\model\*.java src\controller\*.java src\app\*.java
+```
+
+
+
 **Running:**
 ```bash
 java --module-path "C:\path\to\javafx-sdk\lib" --add-modules javafx.controls,javafx.fxml -cp "out;src" app.App
+```
+
+```bash
+
+java --module-path "C:\Users\Lmaoi\Downloads\openjfx-25.0.1_windows-x64_bin-sdk\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,javafx.fxml -cp "out;src" app.App
 ```
 
 Replace `C:\path\to\javafx-sdk\lib` with your actual JavaFX SDK path.
@@ -72,4 +84,4 @@ java -cp out model.ScoreboardTests
 - Scoreboard labels (team names and scores) are styled programmatically in the controller using `setStyle()` instead of CSS because inline FXML styles were not rendering reliably. 
 - No persistence - game state is lost when app closes
 - No game clock or quarter tracking
-- Scores can go negative if undo is used repeatedly
+- UI could be more interactive/graphically appealing
